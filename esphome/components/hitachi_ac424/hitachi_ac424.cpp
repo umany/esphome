@@ -102,12 +102,12 @@ void HitachiClimate::set_fan_(uint8_t speed) {
   // Set the values
 
   set_bits(&remote_state_[HITACHI_AC424_FAN_BYTE], 4, 4, new_speed);
-  remote_state_[9] = 0x92;
+  remote_state_[9] = 0xA3;
 
   // When fan is at min/max, additional bytes seem to be set
-  if (new_speed == HITACHI_AC424_FAN_MIN)
-    remote_state_[9] = 0x98;
-  remote_state_[29] = 0x01;
+  // if (new_speed == HITACHI_AC424_FAN_MIN)
+  //   remote_state_[9] = 0x98;
+  // remote_state_[29] = 0x01;
 }
 
 void HitachiClimate::set_swing_v_toggle_(bool on) {
